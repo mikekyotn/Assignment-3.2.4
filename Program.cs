@@ -7,16 +7,16 @@
     {
         static void Main(string[] args)
         {
-            double[] numbers = new double[4];
+            double[] userNums = new double[4];
             for (int i = 0; i < 4; i++)
             {
                 Console.Write($"Enter number {i + 1}: ");
-                numbers[i] = GetNumber();
+                userNums[i] = GetNumber();
             }
 
-            double[] stats = MakeCalculations(numbers);
+            double[] stats = MakeCalculations(userNums);
 
-            Console.WriteLine($"The average of {numbers[0]}, {numbers[1]}, {numbers[2]}, {numbers[3]} is: {stats[1]}");
+            Console.WriteLine($"The average of {userNums[0]}, {userNums[1]}, {userNums[2]}, {userNums[3]} is: {stats[1]}");
             Console.WriteLine($"The total is {stats[0]}");
         }
         static double GetNumber()
@@ -39,11 +39,8 @@
             {
                 sum += d;
             }
-            output[0] = sum;
-            output[1] = sum / numbers.Length;
-
-
-            return output;
+            
+            return [sum, sum/ numbers.Length];
         }
     }
 }
